@@ -1,0 +1,139 @@
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 1rem;
+  margin: 2rem 0;
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.section-title {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.project-card {
+  transition: all 0.3s ease;
+  border: none;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+.project-image {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  .overlay-content {
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+}
+
+.project-card:hover {
+  .project-image {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    opacity: 1;
+    
+    .overlay-content {
+      transform: translateY(0);
+    }
+  }
+}
+
+.tech-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.category-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+}
+
+.filter-section {
+  .filter-btn {
+    border: 2px solid #dee2e6;
+    color: #6c757d;
+    background: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #007bff;
+      color: #007bff;
+    }
+
+    &.active {
+      background: #007bff;
+      border-color: #007bff;
+      color: white;
+    }
+  }
+}
+
+.project-links {
+  .btn {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+.technologies-wrapper {
+  min-height: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 1rem !important;
+    margin: 1rem 0;
+    
+    .display-4 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .filter-section .d-flex {
+    justify-content: flex-start !important;
+  }
+}

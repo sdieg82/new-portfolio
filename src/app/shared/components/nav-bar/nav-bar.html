@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg fixed-top" 
+     [class.navbar-scrolled]="isScrolled">
+  <div class="container">
+    <!-- Logo / Brand -->
+    <a class="navbar-brand" routerLink="/home" (click)="closeMenu()">
+      <span class="brand-icon">&lt;/&gt;</span>
+      <span class="brand-text">Mi Portafolio</span>
+    </a>
+
+    <!-- Toggler Button for Mobile -->
+    <button class="navbar-toggler" 
+            type="button" 
+            (click)="toggleMenu()"
+            [attr.aria-expanded]="!isMenuCollapsed"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" 
+         [class.show]="!isMenuCollapsed"
+         id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item" *ngFor="let item of navItems">
+          <a class="nav-link" 
+             [routerLink]="item.route"
+             
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: item.fragment === null }"
+             (click)="scrollToSection(item.fragment)">
+            {{ item.label }}
+          </a>
+        </li>
+        
+        <!-- CTA Button -->
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-primary btn-cta" 
+             [routerLink]="['/home']"
+             [fragment]="'contact'"
+             (click)="scrollToSection('contact')">
+            <i class="bi bi-envelope-fill me-2"></i>
+            Contrátame
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer para evitar que el contenido quede debajo del navbar fijo -->
+<div class="navbar-spacer"></div>
